@@ -12,5 +12,15 @@ get('/') do
 end
 
 get('/doctors') do
+  @doctors=Doctor.all()
+  erb(:doctors)
+end
+
+post('/doctors/new') do
+  name = params.fetch("doc")
+  specialty = params.fetch('specialty')
+  doct = Doctor.new({:name => name, :specialty => specialty, :id => nil})
+  doct.save()
+  @doctors = Doctor.all()
   erb(:doctors)
 end

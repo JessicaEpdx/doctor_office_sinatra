@@ -1,1 +1,8 @@
-<h1>target page</h1>
+<h1>These are your DOCTORS!</h1>
+
+<ul>
+  <% @doctors.each() do |doctor| %>
+  <li><a href="/doctor/<%= doctor.id() %>"><%= doctor.name() %> , <%= doctor.specialty() %></a>
+  </li>
+  <% end %>
+</ul>
