@@ -39,5 +39,13 @@ describe(Doctor) do
     end
   end
 
+  describe('.find') do
+    it('list all of the doctors') do
+      doc = Doctor.new({:name => "Dr Zoidb", :specialty => "Benely", :id => nil})
+      doc.save()
+      expect(Doctor.find(doc.id())).to(eq(doc))
+    end
+  end
+
 
 end

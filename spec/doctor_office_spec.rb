@@ -15,7 +15,7 @@ end
 describe('add doctor form path', {:type => :feature}) do
   it('allows user to add a doctor') do
     visit('/')
-    fill_in('name', :with => 'Dr. Dre')
+    fill_in('doc', :with => 'Dr. Dre')
     fill_in('specialty', :with => 'Phat Beatz')
     click_button('ADD THAT DOCTORRRRR')
     expect(page).to have_content('Dr. Dre')

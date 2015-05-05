@@ -7,5 +7,8 @@ attr_reader(:name, :birthday, :doctor_id)
     @doctor_id = attributes.fetch(:doctor_id)
   end
 
+  define_method(:save) do
+    result = DB.exec("INSERT INTO patients (name, birthday, doctor_id) VALUES ('#{@name}', '#{@birthday}', #{@doctor_id});")
+  end
 
 end

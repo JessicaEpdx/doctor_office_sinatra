@@ -1,0 +1,18 @@
+<h1><%=@doctor.name%> has the following patients:</h1>
+
+
+
+
+
+<h2>Add a new patient below:</h2>
+
+<form action="/patient/new" method="post">
+  <input id="doctor_id" name="doctor_id" type="hidden" value="<%= @doctor.id() %>">
+
+  <label for="patient">Patient Name</label>
+  <input id="patient" name="patient" type="text">
+  <label for="birthday">Patient Birthday</label>
+  <input id="birthday" name="birthday" type="text">
+
+  <button type="submit">Add Patient</button>
+</form>

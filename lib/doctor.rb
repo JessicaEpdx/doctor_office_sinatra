@@ -25,8 +25,18 @@ attr_reader(:name, :specialty, :id)
     result
   end
 
+  define_singleton_method(:find) do |id|
+    found_doctor = nil
+    all_doctors = Doctor.all()
+    all_doctors.each() do |doctor|
+      doctor.id().to_i == id
+      found_doctor = doctor
+    end
+    found_doctor
+  end
+
   define_method(:==) do |other_doctor|
-    self.name == other_doctor.name && self.specialty == other_doctor.specialty
+    self.name == other_doctor.name && self.specialty == other_doctor.specialty  
   end
 
 

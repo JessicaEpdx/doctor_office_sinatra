@@ -24,3 +24,14 @@ post('/doctors/new') do
   @doctors = Doctor.all()
   erb(:doctors)
 end
+
+get('/doctor/:id') do
+  @doctor = Doctor.find(params.fetch("id"))
+  erb(:doctor)
+end
+
+post('/patient/new') do
+  @patient = Patient.new({:name => params.fetch('patient'), :birthday => params.fetch("birthday"), :doctor_id => params.fetch("doctor_id")})
+  @patient.save()
+  erb(:success)
+end
